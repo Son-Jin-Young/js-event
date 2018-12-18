@@ -13,12 +13,12 @@
 
 // Custom event
 addEventListener('customTestEvent', (event) => {
-	console.log('custom test event call!!');
+	console.log('custom test event call!!', event);
 });
 
-var divOne = document.querySelector('.one');
+var divThree = document.querySelector('.three');
 
-divOne.addEventListener('click', (event) => {
-	var eventDispatcher = new EventDispatcher();
+divThree.addEventListener('click', (event) => {
+    var eventDispatcher = new EventDispatcher();
 	eventDispatcher.dispatch({name: 'SJY', age: 28});
 });
