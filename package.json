@@ -1,0 +1,23 @@
+{
+  "name": "js-event",
+  "version": "1.0.0",
+  "description": "javascript 이벤트 study project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Son-Jin-Young/js-event.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Son-Jin-Young/js-event/issues"
+  },
+  "homepage": "https://github.com/Son-Jin-Young/js-event#readme",
+  "dependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
