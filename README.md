@@ -3,8 +3,6 @@ javascript 이벤트 study
 
 # Event bubbling, capturing
 예시)
-<pre>
-    <code>
         <div>
             <p>
                 <span>
@@ -12,8 +10,6 @@ javascript 이벤트 study
                 </span>
             </p>
         </div>
-    </code>
-</pre>
 
  - bubbling: 선택된 엘리먼트에서 최상위(body) 엘리먼트로 올라가며 이벤트 전달
  - 예시와 같이 구성되어 있고, element 모두 click 이벤트가 적용되어 있는 경우, span -> p -> div 순으로 실행
