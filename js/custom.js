@@ -1,7 +1,7 @@
 class EventDispatcher {
-    dispatch(event, data) {
+    dispatch (event, data) {
         console.log(data);
-        var customEvent = new CustomEvent(event, {
+        const customEvent = new CustomEvent(event, {
             detail: data
         });
 

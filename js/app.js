@@ -18,7 +18,7 @@ addEventListener('customTestEvent', (event) => {
 
 const eventDispatcher = new EventDispatcher();
 
-const model = new Model();
+const model = new Model(eventDispatcher);
 
 const divThree = document.querySelector('.three');
 
@@ -30,9 +30,9 @@ const btnAdd = document.querySelector('.add');
 
 btnAdd.addEventListener('click', () => {
     const input = document.querySelector('.name');
-    
+
     eventDispatcher.dispatch('addListModel', {name: input.value});
-    
+
     input.value = '';
 });
 
@@ -42,6 +42,18 @@ btnRemove.addEventListener('click', () => {
     const input = document.querySelector('.name');
 
     eventDispatcher.dispatch('removeListModel', {name: input.value});
-    
+
     input.value = '';
+});
+
+addEventListener('updateList', (event) => {
+    const ulList = document.querySelector('.list');
+
+    const list = event.detail.list;
+
+    let listHtml = '';
+
+    list.forEach((value) => listHtml += `<li class="list-item">${value}</li>`);
+
+    ulList.innerHTML = listHtml;
 });

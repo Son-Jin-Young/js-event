@@ -2,6 +2,7 @@ class Model {
     constructor () {
         this._name = '';
         this._list = [];
+        this.eventDispatcher = eventDispatcher;
 
         addEventListener('addListModel', (event) => {
             this.addListModel(event.detail);
@@ -28,6 +29,7 @@ class Model {
         } else {
             this._list.push(model.name);
             console.log('Add name in list', this._list);
+            this.eventDispatcher.dispatch('updateList', {list: this._list});
         }
     }
 
@@ -37,6 +39,7 @@ class Model {
         if (findIdx > -1) {
             this._list.splice(findIdx, 1);
             console.log('Remove name in list', this._list);
+            this.eventDispatcher.dispatch('updateList', {list: this._list});
         } else {
             console.log('Not found in list');
         }
