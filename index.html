@@ -2,36 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Javascript event</title>
-    <link href="css/style.css" rel="stylesheet"/>
+    <title>Javascript Custom Event</title>
 </head>
 <body>
-    <div class="section">
-        <h3>Event bubbling, capturing</h3>
-        <div class="one">
-            1
-            <div class="two">
-                2
-                <div class="three">
-                    3
+    <div id="event-bubbling-example">
+        <main class="main1">
+            <section class="section1">
+                <div class="div1">
+                    <button class="btn1">Bubbling and Capturing</button><br/>
+                    <button class="btn2">Custom Event</button>
                 </div>
-                <div class="four">
-                    4
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
-    <div class="section">
-        <h3>Custom event</h3>
-        <input type="text" class="input name"/>
-        <input type="button" class="btn add" value="add"/>
-        <input type="button" class="btn remove" value="remove"/>
+    <div id="custom-event-example">
+        <input type="text" class="input"/>
+        <button class="add">Add Item</button>
+        <button class="remove">Remove Item</button>
     </div>
-    <div>
-        <ul class="list">
-        </ul>
-    </div>
-    
     <script src="js/model.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/app.js"></script>

@@ -1,59 +1,59 @@
-// Bubbling, Capturing
-// var divs = document.querySelectorAll('div');
-
-// divs.forEach(function(div) {
-// 	div.addEventListener('click', logEvent, {
-// 		capture: true
-// 	});
-// });
-
-// function logEvent(event) {
-// 	console.log(event.currentTarget.className);
-// }
-
-// Custom event
-addEventListener('customTestEvent', (event) => {
-	console.log('custom test event call!!', event);
-});
-
 const eventDispatcher = new EventDispatcher();
 
-const model = new Model(eventDispatcher);
+const model = new Model();
 
-const divThree = document.querySelector('.three');
+const handleClick = (e) => {
+    alert(e.currentTarget.tagName + '.' + e.currentTarget.className);
+};
 
-divThree.addEventListener('click', (event) => {
-    eventDispatcher.dispatch('customTestEvent', {name: 'SJY', age: 28});
-});
+document.querySelector('#event-bubbling-example main').addEventListener('click', handleClick/* , {capture: true} */);
+document.querySelector('#event-bubbling-example section').addEventListener('click', handleClick/* , {capture: true} */);
+document.querySelector('#event-bubbling-example div').addEventListener('click', handleClick/* , {capture: true} */);
+document.querySelector('#event-bubbling-example button.btn1').addEventListener('click', handleClick/* , {capture: true} */);
 
-const btnAdd = document.querySelector('.add');
+function checkId() {
+    console.log('checkId');
+}
 
-btnAdd.addEventListener('click', () => {
-    const input = document.querySelector('.name');
+function addId() {
+    connsole.log('addId');
+}
 
-    eventDispatcher.dispatch('addListModel', {name: input.value});
+let callback = {
+    list: []
+};
+
+callback.list.push(checkId);
+callback.list.push(addId);
+
+console.log(checkId === callback.list[0]);
+console.log(checkId === callback.list[1]);
+
+const customClick = (e) => {
+    eventDispatcher.dispatch('customEvent', {distance: 1000, speed: 40});
+};
+
+const custom = (e) => {
+    alert('customEvent ' + e.detail.distance + ', ' + e.detail.speed);
+};
+
+const add = (e) => {
+    const input = document.querySelector('#custom-event-example .input');
+    
+    eventDispatcher.dispatch('add', {name: input.value});
 
     input.value = '';
-});
+};
 
-const btnRemove = document.querySelector('.remove');
+const remove = (e) => {
+    const input = document.querySelector('#custom-event-example .input');
 
-btnRemove.addEventListener('click', () => {
-    const input = document.querySelector('.name');
-
-    eventDispatcher.dispatch('removeListModel', {name: input.value});
+    eventDispatcher.dispatch('remove', {name: input.value});
 
     input.value = '';
-});
+};
 
-addEventListener('updateList', (event) => {
-    const ulList = document.querySelector('.list');
-
-    const list = event.detail.list;
-
-    let listHtml = '';
-
-    list.forEach((value) => listHtml += `<li class="list-item">${value}</li>`);
-
-    ulList.innerHTML = listHtml;
-});
+addEventListener('customEvent', custom);
+document.querySelector('#event-bubbling-example button.btn2').addEventListener('click', customClick, {capture: true});
+document.querySelector('#custom-event-example button.add').addEventListener('click', add);
+document.querySelector('#custom-event-example button.remove').addEventListener('click', remove);

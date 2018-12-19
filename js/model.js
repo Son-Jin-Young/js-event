@@ -4,11 +4,11 @@ class Model {
         this._list = [];
         this.eventDispatcher = eventDispatcher;
 
-        addEventListener('addListModel', (event) => {
+        addEventListener('add', (event) => {
             this.addListModel(event.detail);
         });
 
-        addEventListener('removeListModel', (event) => {
+        addEventListener('remove', (event) => {
             this.removeListModel(event.detail);
         });
     }
