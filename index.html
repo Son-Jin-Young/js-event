@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <title>Javascript event</title>
     <style>
-        body {
-            color: #ffffff;
+        .section {
+            margin-bottom: 20px;
         }
+
         .one {
             height: 500px;
             width: 700px;
             background-color: #ff0000;
         }
+
         .two {
             height: 400px;
             width: 300px;
             margin-left: 20px;
             background-color: #00ff00;
         }
+
         .three {
             height: 100px;
             width: 70%;
@@ -25,27 +28,97 @@
             background-color: #0000ff;
             margin-bottom: 10px;
         }
+
         .four {
             height: 100px;
             background-color: #ff00ff;
         }
+
+        .input {
+            padding: 3px 10px;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #ffffff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+        }
+
+        .btn {
+            background-color: silver;
+            border: none;
+            padding: 5px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 3%;
+            font-weight: bold;
+        }
+
+        .btn:active {
+            outline: none;
+            border: none;
+        }
+
+        .btn.add {
+            background-color: #4d85ce;
+            color: #ffffff;
+        }
+
+        .btn.remove {
+            background-color: #d62828;   
+            color: #ffffff;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            max-width: 400px;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list-item {
+            position: relative;
+            display:block;
+            border: 1px solid silver;
+            padding: 3px 10px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="one">
-        1
-        <div class="two">
-            2
-            <div class="three">
-                3
-            </div>
-            <div class="four">
-                4
+    <div class="section">
+        <h3>Event bubbling, capturing</h3>
+        <div class="one">
+            1
+            <div class="two">
+                2
+                <div class="three">
+                    3
+                </div>
+                <div class="four">
+                    4
+                </div>
             </div>
         </div>
     </div>
-            
-    <script src="app.js"></script>
+    <div class="section">
+        <h3>Custom event</h3>
+        <input type="text" class="input name"/>
+        <input type="button" class="btn add" value="add"/>
+        <input type="button" class="btn remove" value="remove"/>
+    </div>
+    <div>
+        <ul class="list">
+            <li class="list-item">hi</li>
+            <li class="list-item">hello</li>
+            <li class="list-item">haha</li>
+        </ul>
+    </div>
+    
+    <script src="model.js"></script>
     <script src="custom.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
