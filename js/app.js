@@ -57,3 +57,17 @@ addEventListener('customEvent', custom);
 document.querySelector('#event-bubbling-example button.btn2').addEventListener('click', customClick, {capture: true});
 document.querySelector('#custom-event-example button.add').addEventListener('click', add);
 document.querySelector('#custom-event-example button.remove').addEventListener('click', remove);
+
+addEventListener('updateList', (e) => {
+    console.log(e.detail.list);
+
+    const list = e.detail.list;
+
+    let listHtml = '';
+
+    for (item of list) {
+        listHtml += `<li class="list-group-item">${item}<button class="remove">X</button></li>`;
+    }
+
+    document.querySelector('.list-group').innerHTML = listHtml;
+});
